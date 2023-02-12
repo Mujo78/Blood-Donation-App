@@ -1,0 +1,184 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>DarujKrv</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>DarujKrv</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.darujkrv</ApplicationId>
+		<ApplicationIdGuid>CF669526-575B-42CF-B779-5DE2017E369D</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#ffffff" />
+		<!-- Splash Screen -->
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\ad.png" />
+	  <None Remove="Resources\Images\apoz.png" />
+	  <None Remove="Resources\Images\app.jpg" />
+	  <None Remove="Resources\Images\appp.jpg" />
+	  <None Remove="Resources\Images\bck.jpg" />
+	  <None Remove="Resources\Images\blood.png" />
+	  <None Remove="Resources\Images\btheme.jpg" />
+	  <None Remove="Resources\Images\call.png" />
+	  <None Remove="Resources\Images\check.png" />
+	  <None Remove="Resources\Images\date.png" />
+	  <None Remove="Resources\Images\dblod.png" />
+	  <None Remove="Resources\Images\detalji.png" />
+	  <None Remove="Resources\Images\don.jpg" />
+	  <None Remove="Resources\Images\donation.jpg" />
+	  <None Remove="Resources\Images\fbb.png" />
+	  <None Remove="Resources\Images\formreg.png" />
+	  <None Remove="Resources\Images\gg.png" />
+	  <None Remove="Resources\Images\halfstars.png" />
+	  <None Remove="Resources\Images\health.jpg" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\homeicon.svg" />
+	  <None Remove="Resources\Images\icc.png" />
+	  <None Remove="Resources\Images\icona.png" />
+	  <None Remove="Resources\Images\iconch.png" />
+	  <None Remove="Resources\Images\iconn.png" />
+	  <None Remove="Resources\Images\iconsearch.png" />
+	  <None Remove="Resources\Images\info.png" />
+	  <None Remove="Resources\Images\infuzija.png" />
+	  <None Remove="Resources\Images\inst.jpg" />
+	  <None Remove="Resources\Images\kkk.svg" />
+	  <None Remove="Resources\Images\krv.jpg" />
+	  <None Remove="Resources\Images\link.png" />
+	  <None Remove="Resources\Images\loc.png" />
+	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\logout.png" />
+	  <None Remove="Resources\Images\loo.png" />
+	  <None Remove="Resources\Images\look.png" />
+	  <None Remove="Resources\Images\map.jpg" />
+	  <None Remove="Resources\Images\mess.png" />
+	  <None Remove="Resources\Images\mm.jpg" />
+	  <None Remove="Resources\Images\num.png" />
+	  <None Remove="Resources\Images\pricon.svg" />
+	  <None Remove="Resources\Images\profile.svg" />
+	  <None Remove="Resources\Images\prvaslika.png" />
+	  <None Remove="Resources\Images\red.jpg" />
+	  <None Remove="Resources\Images\rightsliider.png" />
+	  <None Remove="Resources\Images\sa.jpg" />
+	  <None Remove="Resources\Images\SCR.png" />
+	  <None Remove="Resources\Images\searchus.png" />
+	  <None Remove="Resources\Images\set.svg" />
+	  <None Remove="Resources\Images\setic.svg" />
+	  <None Remove="Resources\Images\settingsicon.png" />
+	  <None Remove="Resources\Images\sh.jpg" />
+	  <None Remove="Resources\Images\share.svg" />
+	  <None Remove="Resources\Images\slika.png" />
+	  <None Remove="Resources\Images\ss.svg" />
+	  <None Remove="Resources\Images\stars.png" />
+	  <None Remove="Resources\Images\statistika.png" />
+	  <None Remove="Resources\Images\th.jpg" />
+	  <None Remove="Resources\Images\treca.jpg" />
+	  <None Remove="Resources\Images\ttt.png" />
+	  <None Remove="Resources\Images\us.png" />
+	  <None Remove="Resources\Images\user.jpg" />
+	  <None Remove="Resources\Images\usp.svg" />
+	  <None Remove="Resources\Images\wtheme.jpg" />
+	  <None Remove="Resources\Images\zadnja.jpg" />
+	  <None Remove="Resources\Splash\krv.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiSplashScreen Include="Resources\Splash\krv.jpg" Color="White" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="2.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	  <PackageReference Include="Plugin.LocalNotification" Version="10.1.3" />
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="SQLiteNetExtensions">
+	    <HintPath>..\..\..\.nuget\packages\sqlitenetextensions\2.1.0\lib\netstandard1.1\SQLiteNetExtensions.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\DetailsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\EditProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\HomePageLogin.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\PasswordChange.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\PhoneDialerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\PopUpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Registration.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Location.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Share.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SharePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Ustanove.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDarujKrvHideInfoBar="True" XamarinHotReloadGenericExceptionInfoBarDarujKrvHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
+</Project>
